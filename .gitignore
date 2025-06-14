@@ -14,4 +14,4 @@ wheels/
 
 .project_meta
 .DS_Store
-.vscode/settings.json
+.vscode
