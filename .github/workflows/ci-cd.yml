@@ -28,7 +28,7 @@ jobs:
           pip install uv
           uv venv
           source .venv/bin/activate
-          uv sync
+          uv sync --extra dev 
 
       - name: Run tests
         run: |
