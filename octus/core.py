@@ -1,8 +1,11 @@
 from pathlib import Path
 import os
+import logging
 from typing import Type
 from pydantic import BaseModel
 from .loaders import load_yaml
+
+logger = logging.getLogger(__name__)
 
 
 class Octus:
@@ -31,5 +34,6 @@ class Octus:
             raise FileNotFoundError(f"Config file not found: {config_file}")
 
         config_data = load_yaml(config_file)
+        logger.info(f"Configuration loaded from: {config_file}")
 
         return config_model(**config_data)
