@@ -1,6 +1,6 @@
 [project]
 name = "octus"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Python package designed to simplify configuration management for applications. It allows you to load configurations from YAML files, with support for environment-specific overrides and Pydantic for schema validation."
 readme = "README.md"
 requires-python = ">=3.11"

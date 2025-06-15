@@ -89,6 +89,13 @@ def test_config_loader_load_environment_specific(temp_config_dir, monkeypatch):
     assert config.database.port == 5433
 
 
+def test_config_loader_error_loading_without_related_type(temp_config_dir, monkeypatch):
+    """Test ConfigLoader raises an error if ENV_TYPE is set, but we do not have an environment-specific config."""
+    monkeypatch.setenv("ENV_TYPE", "dev")
+    with pytest.raises(FileNotFoundError):
+        Octus.load(base_path=str(temp_config_dir), config_model=Config)
+
+
 def test_config_loader_file_not_found(temp_config_dir):
     """Test ConfigLoader raises FileNotFoundError if config file is missing."""
     with pytest.raises(FileNotFoundError):
