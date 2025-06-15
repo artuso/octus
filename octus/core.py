@@ -22,6 +22,10 @@ class Octus:
             env_config = base_path_obj / f"{config_name}.{env_value}.yaml"
             if env_config.exists():
                 config_file = env_config
+            else:
+                raise FileNotFoundError(
+                    f"Environment-specific config file not found: {env_config}"
+                )
 
         if not config_file.exists():
             raise FileNotFoundError(f"Config file not found: {config_file}")
